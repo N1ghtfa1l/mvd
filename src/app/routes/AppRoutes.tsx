@@ -9,7 +9,7 @@ import { WantedPage } from "../../pages/WantedPage/ui/WantedPage"
 export const AppRoutes = () => {
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename="/">
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<HomePage />} />
