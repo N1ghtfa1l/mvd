@@ -1,0 +1,34 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router"
+import { Layout } from "../layout"
+import { HomePage } from "../../pages/HomePage"
+import { ActivityPage } from "../../pages/ActivityPage"
+import { ContactPage } from "../../pages/ContactPage"
+import { CitizenPage } from "../../pages/CitizenPage"
+import { WantedPage } from "../../pages/WantedPage/ui/WantedPage"
+
+export const AppRoutes = () => {
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<HomePage />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Route>
+                    <Route path="/activity" element={<Layout />}>
+                        <Route index element={<ActivityPage />} />
+                    </Route>
+                    <Route path="/citizen" element={<Layout />}>
+                        <Route index element={<CitizenPage />} />
+                    </Route>
+                    <Route path="/contact" element={<Layout />}>
+                        <Route index element={<ContactPage />} />
+                    </Route>
+                    <Route path="/wanted" element={<Layout />}>
+                        <Route index element={<WantedPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </>
+    )
+}

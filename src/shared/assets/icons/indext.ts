@@ -1,0 +1,5 @@
+export { MailIcon } from './MailIcon'
+export { PhoneIcon } from './PhoneIcon'
+export { RutubeIcon } from './RutubeIcon'
+export { VkIcon } from './VkIcon'
+export { TelegramIcon } from './TelegramIcon'

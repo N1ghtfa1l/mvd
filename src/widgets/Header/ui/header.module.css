@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+}
+
+.headerPhone {
+    display: flex;
+}
+
+.headerNav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+
