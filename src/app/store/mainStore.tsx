@@ -1,8 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authReducer from '../../pages/AuthPage/slices/AuthPageSlice'
 
 export const mainStore = configureStore({
-    reducer: { authReducer },
+    reducer: {},
 })
 
 export type RootState = ReturnType<typeof mainStore.getState>

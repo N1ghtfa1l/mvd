@@ -1,43 +1,11 @@
-import { useState, useEffect } from "react";
-import styles from "./CitizenPage.module.css";
-import { CITIZEN_CONTENT } from "../../../shared/consts";
-import type { ICitizineContent } from "../../../shared/types";
 
+import styles from './CitizenPage.module.css'
 
 export const CitizenPage = () => {
-    const [data, setData] = useState<ICitizineContent[]>(CITIZEN_CONTENT);
-
-    useEffect(() => {
-        const saved = localStorage.getItem("citizens");
-        if (saved) {
-            setData(JSON.parse(saved));
-        }
-    }, []);
-
-    useEffect(() => {
-        if (JSON.stringify(data) === JSON.stringify(CITIZEN_CONTENT)) return
-        localStorage.setItem("citizens", JSON.stringify(data));
-    }, [data]);
-
-    const handleChange = (
-        index: number,
-        field: keyof ICitizineContent,
-        value: string | number
-    ) => {
-        const updated = [...data];
-        updated[index] = {
-            ...updated[index],
-            [field]: field === "number" ? Number(value) : value
-        };
-        setData(updated);
-    };
-
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.title}>
-                График приема граждан руководящим составом МВД России
-            </div>
+            <div className={styles.title}>График приема граждан руководящим составом МВД России</div>
             <table>
                 <thead>
                     <tr>
@@ -48,45 +16,30 @@ export const CitizenPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, index) => (
-                        <tr key={index}>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.position}
-                                    onChange={(e) =>
-                                        handleChange(index, "position", e.target.value)
-                                    }
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.name}
-                                    onChange={(e) => handleChange(index, "name", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    type="text"
-                                    value={row.day}
-                                    onChange={(e) => handleChange(index, "day", e.target.value)}
-                                />
-                            </td>
-                            <td>
-                                <input
-                                    className={styles.number}
-                                    type="number"
-                                    value={row.number}
-                                    onChange={(e) =>
-                                        handleChange(index, "number", e.target.value)
-                                    }
-                                />
-                            </td>
-                        </tr>
-                    ))}
+                    <tr><td>Начальник Департамента по финансово-экономической политике и обеспечению социальных гарантий</td><td>Кальбельний И.Д.</td><td>понедельник</td><td className={styles.number}>1</td></tr>
+                    <tr><td>Статс-секретарь - заместитель Министра</td><td>Зубов И.Н.</td><td>вторник</td><td className={styles.number}>2</td></tr>
+                    <tr><td>Врио начальника Главного управления по работе с личным составом</td><td>Архипов Д.Н.</td><td>среда</td><td className={styles.number}>3</td></tr>
+                    <tr><td>Начальник Управления по обеспечению безопасности лиц, подлежащих государственной защите</td><td>Михеев С.В.</td><td>четверг</td><td className={styles.number}>4</td></tr>
+                    <tr><td>Начальник Главного управления уголовного розыска</td><td>Голованов В.В.</td><td>пятница</td><td className={styles.number}>5</td></tr>
+                    <tr><td>Врио начальника Договорно-правового департамента</td><td>Комзолова А.И.</td><td>понедельник</td><td className={styles.number}>8</td></tr>
+                    <tr><td>Заместитель Министра</td><td>Кравченко А.Н.</td><td>вторник</td><td className={styles.number}>9</td></tr>
+                    <tr><td>Начальник Главного управления по противодействию экстремизму</td><td>Кожевников В.В.</td><td>среда</td><td className={styles.number}>10</td></tr>
+                    <tr><td>Заместитель Министра - начальник Следственного департамента</td><td>Лебедев С.Н.</td><td>четверг</td><td className={styles.number}>11</td></tr>
+                    <tr><td>Начальник Главного управления экономической безопасности и противодействия коррупции</td><td>Курносенко А.А.</td><td>пятница</td><td className={styles.number}>12</td></tr>
+                    <tr><td>Врио заместителя начальника Службы по вопросам гражданства и регистрации иностранных граждан</td><td>Казаков В.П.</td><td>понедельник</td><td className={styles.number}>15</td></tr>
+                    <tr><td>Начальник Главного управления по обеспечению безопасности дорожного движения</td><td>Черников М.Ю.</td><td>вторник</td><td className={styles.number}>16</td></tr>
+                    <tr><td>Начальник Департамента по материально-техническому и медицинскому обеспечению</td><td>Юрин А.А.</td><td>среда</td><td className={styles.number}>17</td></tr>
+                    <tr><td>Заместитель начальника Следственного департамента</td><td>Вохмянин А.Н.</td><td>четверг</td><td className={styles.number}>18</td></tr>
+                    <tr><td>Начальник Главного управления по обеспечению охраны общественного порядка и координации взаимодействия с органами исполнительной власти субъектов Российской Федерации</td><td>Колесник С.Н.</td><td>пятница</td><td className={styles.number}>19</td></tr>
+                    <tr><td>Заместитель начальника Службы по вопросам гражданства и регистрации иностранных граждан - начальник Департамента по вопросам миграции</td><td>Азизов К.О.</td><td>понедельник</td><td className={styles.number}>22</td></tr>
+                    <tr><td>Начальник Главного управления собственной безопасности</td><td>Макаров А.И.</td><td>вторник</td><td className={styles.number}>23</td></tr>
+                    <tr><td>Первый заместитель Министра</td><td>Горовой А.В.</td><td>среда</td><td className={styles.number}>24</td></tr>
+                    <tr><td>Начальник Департамента международного сотрудничества</td><td>Мельников А.А.</td><td>четверг</td><td className={styles.number}>25</td></tr>
+                    <tr><td>Начальник Управления по контролю за оборотом оружия</td><td>Маслов С.А.</td><td>пятница</td><td className={styles.number}>26</td></tr>
+                    <tr><td>Начальник Управления по контролю за оборотом наркотиков</td><td>Горбунов И.В.</td><td>понедельник</td><td className={styles.number}>29</td></tr>
+                    <tr><td>Начальник Главного управления по обеспечению охраны общественного порядка и координации взаимодействия с органами исполнительной власти субъектов Российской Федерации</td><td>Габдрахманов Л.Р.</td><td>вторник</td><td className={styles.number}>30</td></tr>
                 </tbody>
             </table>
         </div>
-    );
-};
+    )
+}
