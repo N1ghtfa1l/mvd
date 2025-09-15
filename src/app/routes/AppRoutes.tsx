@@ -13,35 +13,33 @@ export const AppRoutes = () => {
     const auth = useSelector((state: RootState) => state.authReducer.authorized)
     return (
         <>
-            <BrowserRouter basename="/mvd">
-                <Routes>
-                    {auth ?
-                        <>
-                            <Route path="/" element={<Layout />}>
-                                <Route index element={<HomePage />} />
-                                <Route path="*" element={<Navigate to="/" replace />} />
-                            </Route>
-                            <Route path="/activity" element={<Layout />}>
-                                <Route index element={<ActivityPage />} />
-                            </Route>
-                            <Route path="/citizen" element={<Layout />}>
-                                <Route index element={<CitizenPage />} />
-                            </Route>
-                            <Route path="/contact" element={<Layout />}>
-                                <Route index element={<ContactPage />} />
-                            </Route>
-                            <Route path="/wanted" element={<Layout />}>
-                                <Route index element={<WantedPage />} />
-                            </Route>
-                        </>
-                        :
-                        <>
-                            <Route path="/auth" element={<AuthPage />} />
-                            <Route path="*" element={<Navigate to="/auth" replace />} />
-                        </>
-                    }
-                </Routes>
-            </BrowserRouter>
+            <Routes>
+                {auth ?
+                    <>
+                        <Route path="/" element={<Layout />}>
+                            <Route index element={<HomePage />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
+                        </Route>
+                        <Route path="/activity" element={<Layout />}>
+                            <Route index element={<ActivityPage />} />
+                        </Route>
+                        <Route path="/citizen" element={<Layout />}>
+                            <Route index element={<CitizenPage />} />
+                        </Route>
+                        <Route path="/contact" element={<Layout />}>
+                            <Route index element={<ContactPage />} />
+                        </Route>
+                        <Route path="/wanted" element={<Layout />}>
+                            <Route index element={<WantedPage />} />
+                        </Route>
+                    </>
+                    :
+                    <>
+                        <Route path="/auth" element={<AuthPage />} />
+                        <Route path="*" element={<Navigate to="/auth" replace />} />
+                    </>
+                }
+            </Routes>
         </>
     )
 }
